@@ -91,7 +91,8 @@ class _HomePageState extends State<HomePage> {
             padding:  EdgeInsets.symmetric(vertical: _deviceHeight * 0.01),
             child: ScrollableGameswidget(_deviceHeight * 0.24, _deviceWidth, games, true),
           ),
-
+         _featuredGamesBannerWidget(),
+          ScrollableGameswidget(_deviceHeight * 0.17, _deviceWidth, games2, false)
         ],
       ),
     );
@@ -172,6 +173,19 @@ class _HomePageState extends State<HomePage> {
             }).toList(),
           )
         ],
+      ),
+    );
+  }
+
+  Widget _featuredGamesBannerWidget(){
+    return Container(
+      height: _deviceHeight * 0.13,
+      width: _deviceWidth,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        image: DecorationImage(
+            fit: BoxFit.cover,
+            image: NetworkImage(featuredGames[3].coverImage.url)),
       ),
     );
   }
